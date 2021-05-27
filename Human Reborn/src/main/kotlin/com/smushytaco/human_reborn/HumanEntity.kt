@@ -13,6 +13,7 @@ import net.minecraft.sound.SoundEvents
 import net.minecraft.world.World
 class HumanEntity(world: World): HostileEntity(HumanReborn.HUMAN_ENTITY_TYPE, world) {
     override fun initGoals() {
+        goalSelector.add(0, SwimGoal(this))
         goalSelector.add(8, LookAtEntityGoal(this, PlayerEntity::class.java, 8.0F))
         goalSelector.add(8, LookAroundGoal(this))
         goalSelector.add(2, MeleeAttackGoal(this, 1.0, false))

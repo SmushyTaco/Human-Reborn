@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "human_reborn",
+  "version": "${version}",
+  "name": "Human Reborn",
+  "description": "This mod adds a modern version of the Human mob from Minecraft Beta 1.7.3!",
+  "authors": [
+    "SmushyTaco"
+  ],
+  "contact": {
+    "homepage": "https://www.smushytaco.com/",
+    "issues": "https://www.curseforge.com/minecraft/mc-mods/human-reborn/issues/",
+    "sources": "https://github.com/realSmushyTaco/Human-Reborn/"
+  },
+  "license": "GNU Lesser General Public License version 3 (LGPLv3)",
+  "icon": "assets/human_reborn/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "com.smushytaco.human_reborn.HumanReborn"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "com.smushytaco.human_reborn.client.HumanRebornClient"
+      }
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "fabric-language-kotlin": ">=1.6.0+kotlin.1.5.0",
+    "minecraft": "1.16.x"
+  }
+}

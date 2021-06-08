@@ -8,8 +8,8 @@ import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry
 @Environment(EnvType.CLIENT)
 object HumanRebornClient: ClientModInitializer {
     override fun onInitializeClient() {
-        EntityRendererRegistry.INSTANCE.register(HumanReborn.HUMAN_ENTITY_TYPE) { manager, _ ->
-            HumanEntityRenderer(manager)
+        EntityRendererRegistry.INSTANCE.register(HumanReborn.HUMAN_ENTITY_TYPE) {
+            HumanEntityRenderer(it)
         }
     }
 }

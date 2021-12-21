@@ -18,13 +18,13 @@ class HumanEntity(world: World): HostileEntity(HumanReborn.HUMAN_ENTITY_TYPE, wo
         goalSelector.add(8, LookAroundGoal(this))
         goalSelector.add(2, MeleeAttackGoal(this, 1.0, false))
         goalSelector.add(7, WanderAroundFarGoal(this, 1.0))
-        targetSelector.add(2, FollowTargetGoal(this, PlayerEntity::class.java, true))
+        targetSelector.add(2, ActiveTargetGoal(this, PlayerEntity::class.java, true))
     }
     override fun getSwimSound(): SoundEvent = SoundEvents.ENTITY_PLAYER_SWIM
     override fun getSplashSound(): SoundEvent = SoundEvents.ENTITY_PLAYER_SPLASH
     override fun getHurtSound(source: DamageSource): SoundEvent = SoundEvents.ENTITY_PLAYER_HURT
     override fun getDeathSound(): SoundEvent = SoundEvents.ENTITY_PLAYER_DEATH
-    override fun getFallSound(distance: Int): SoundEvent = if (distance > 4) SoundEvents.ENTITY_PLAYER_BIG_FALL else SoundEvents.ENTITY_PLAYER_SMALL_FALL
+    override fun getFallSounds(): FallSounds = FallSounds(SoundEvents.ENTITY_PLAYER_SMALL_FALL, SoundEvents.ENTITY_PLAYER_BIG_FALL)
     override fun dropEquipment(source: DamageSource, lootingMultiplier: Int, allowDrops: Boolean) {
         super.dropEquipment(source, lootingMultiplier, allowDrops)
         val entity = source.attacker ?: return

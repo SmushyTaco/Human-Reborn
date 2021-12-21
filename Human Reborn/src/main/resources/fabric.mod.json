@@ -10,7 +10,7 @@
   "contact": {
     "homepage": "https://www.smushytaco.com/",
     "issues": "https://www.curseforge.com/minecraft/mc-mods/human-reborn/issues/",
-    "sources": "https://github.com/realSmushyTaco/Human-Reborn/"
+    "sources": "https://github.com/SmushyTaco/Human-Reborn/"
   },
   "license": "GNU Lesser General Public License version 3 (LGPLv3)",
   "icon": "assets/human_reborn/icon.png",
@@ -30,9 +30,10 @@
     ]
   },
   "depends": {
-    "fabricloader": ">=0.11.3",
+    "fabricloader": ">=0.12.12",
     "fabric": "*",
-    "fabric-language-kotlin": ">=1.6.1+kotlin.1.5.10",
-    "minecraft": "1.17.x"
+    "fabric-language-kotlin": ">=1.7.1+kotlin.1.6.10",
+    "minecraft": "1.18.x",
+    "java": ">=17"
   }
 }

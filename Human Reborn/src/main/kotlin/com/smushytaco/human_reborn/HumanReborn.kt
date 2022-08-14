@@ -19,7 +19,7 @@ import net.minecraft.world.Heightmap
 object HumanReborn: ModInitializer {
     private const val MOD_ID = "human_reborn"
     val HUMAN_ENTITY_TYPE: EntityType<HumanEntity> = Registry.register(Registry.ENTITY_TYPE, Identifier(MOD_ID, "human"),
-        FabricEntityTypeBuilder.create<HumanEntity>(SpawnGroup.MONSTER) { _, world ->
+        FabricEntityTypeBuilder.create(SpawnGroup.MONSTER) { _, world ->
             HumanEntity(world)
         }.dimensions(EntityDimensions.fixed(0.6F, 1.8F)).trackRangeChunks(8).build())
     private val HUMAN_SPAWN_EGG = SpawnEggItem(HUMAN_ENTITY_TYPE, 5651507, 12422002, Item.Settings().group(ItemGroup.MISC))

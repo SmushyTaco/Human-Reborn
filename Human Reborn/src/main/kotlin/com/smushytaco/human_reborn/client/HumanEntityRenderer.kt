@@ -8,10 +8,12 @@ import net.minecraft.client.render.entity.model.BipedEntityModel
 import net.minecraft.client.render.entity.model.EntityModelLayers
 import net.minecraft.client.render.entity.model.PlayerEntityModel
 import net.minecraft.entity.mob.MobEntity
+import net.minecraft.util.Identifier
 @Environment(EnvType.CLIENT)
 class HumanEntityRenderer(ctx: EntityRendererFactory.Context): BipedEntityRenderer<MobEntity, PlayerEntityModel<MobEntity>>(ctx, PlayerEntityModel(ctx.getPart(EntityModelLayers.PLAYER), false), 0.5F) {
     init {
         addFeature(ArmorFeatureRenderer(this, BipedEntityModel(ctx.getPart(EntityModelLayers.PLAYER_INNER_ARMOR)), BipedEntityModel(ctx.getPart(EntityModelLayers.PLAYER_OUTER_ARMOR)))
         )
     }
+    override fun getTexture(entity: MobEntity): Identifier = Identifier("minecraft", "textures/entity/player/wide/steve.png")
 }

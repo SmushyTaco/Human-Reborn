@@ -8,6 +8,7 @@ import net.minecraft.entity.mob.HostileEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
+import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundEvent
 import net.minecraft.sound.SoundEvents
 import net.minecraft.world.World
@@ -25,8 +26,8 @@ class HumanEntity(world: World): HostileEntity(HumanReborn.HUMAN_ENTITY_TYPE, wo
     override fun getHurtSound(source: DamageSource): SoundEvent = SoundEvents.ENTITY_PLAYER_HURT
     override fun getDeathSound(): SoundEvent = SoundEvents.ENTITY_PLAYER_DEATH
     override fun getFallSounds(): FallSounds = FallSounds(SoundEvents.ENTITY_PLAYER_SMALL_FALL, SoundEvents.ENTITY_PLAYER_BIG_FALL)
-    override fun dropEquipment(source: DamageSource, lootingMultiplier: Int, allowDrops: Boolean) {
-        super.dropEquipment(source, lootingMultiplier, allowDrops)
+    override fun dropEquipment(world: ServerWorld, source: DamageSource, causedByPlayer: Boolean) {
+        super.dropEquipment(world, source, causedByPlayer)
         val entity = source.attacker ?: return
         if (entity !is CreeperEntity) return
         if (!entity.shouldDropHead()) return

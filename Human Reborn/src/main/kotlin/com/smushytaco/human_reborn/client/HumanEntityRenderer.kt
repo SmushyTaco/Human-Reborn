@@ -14,5 +14,5 @@ class HumanEntityRenderer(ctx: EntityRendererFactory.Context): BipedEntityRender
     init {
         addFeature(ArmorFeatureRenderer(this, BipedEntityModel(ctx.getPart(EntityModelLayers.PLAYER_INNER_ARMOR)), BipedEntityModel(ctx.getPart(EntityModelLayers.PLAYER_OUTER_ARMOR)), ctx.modelManager))
     }
-    override fun getTexture(entity: MobEntity): Identifier = Identifier("minecraft", "textures/entity/player/wide/steve.png")
+    override fun getTexture(entity: MobEntity): Identifier = Identifier.of("minecraft", "textures/entity/player/wide/steve.png")
 }

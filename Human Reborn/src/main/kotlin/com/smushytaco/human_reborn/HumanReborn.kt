@@ -16,7 +16,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.world.Heightmap
 object HumanReborn: ModInitializer {
     private const val MOD_ID = "human_reborn"
-    val HUMAN_ENTITY_TYPE: EntityType<HumanEntity> = Registry.register(Registries.ENTITY_TYPE, Identifier(MOD_ID, "human"),
+    val HUMAN_ENTITY_TYPE: EntityType<HumanEntity> = Registry.register(Registries.ENTITY_TYPE, Identifier.of(MOD_ID, "human"),
         EntityType.Builder.create({ _, world -> HumanEntity(world) }, SpawnGroup.MONSTER).dimensions(0.6F, 1.8F)
             .eyeHeight(1.62F).vehicleAttachment(PlayerEntity.VEHICLE_ATTACHMENT_POS).maxTrackingRange(8).build())
     private val HUMAN_SPAWN_EGG = SpawnEggItem(HUMAN_ENTITY_TYPE, 5651507, 12422002, Item.Settings())
@@ -24,7 +24,7 @@ object HumanReborn: ModInitializer {
         FabricDefaultAttributeRegistry.register(HUMAN_ENTITY_TYPE, HumanEntity.createMobAttributes())
         SpawnRestriction.register(HUMAN_ENTITY_TYPE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark)
         BiomeModifications.addSpawn(BiomeSelectors.spawnsOneOf(EntityType.ZOMBIE), SpawnGroup.MONSTER, HUMAN_ENTITY_TYPE, 10, 1, 3)
-        Registry.register(Registries.ITEM, Identifier(MOD_ID, "human_spawn_egg"), HUMAN_SPAWN_EGG)
+        Registry.register(Registries.ITEM, Identifier.of(MOD_ID, "human_spawn_egg"), HUMAN_SPAWN_EGG)
         ItemGroupEvents.modifyEntriesEvent(ItemGroups.SPAWN_EGGS).register(ItemGroupEvents.ModifyEntries { it.add(HUMAN_SPAWN_EGG) })
     }
 }

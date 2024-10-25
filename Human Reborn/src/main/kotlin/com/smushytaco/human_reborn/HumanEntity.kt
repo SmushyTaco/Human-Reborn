@@ -32,13 +32,13 @@ class HumanEntity(world: World): HostileEntity(HumanReborn.HUMAN_ENTITY_TYPE, wo
         if (entity !is CreeperEntity) return
         if (!entity.shouldDropHead()) return
         entity.onHeadDropped()
-        dropStack(ItemStack(Items.PLAYER_HEAD))
+        dropStack(world, ItemStack(Items.PLAYER_HEAD))
     }
     companion object {
         fun createMobAttributes(): DefaultAttributeContainer.Builder = createHostileAttributes()
-            .add(EntityAttributes.GENERIC_FOLLOW_RANGE, 35.0)
-            .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.35)
-            .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0)
-            .add(EntityAttributes.GENERIC_ARMOR, 2.0)
+            .add(EntityAttributes.FOLLOW_RANGE, 35.0)
+            .add(EntityAttributes.MOVEMENT_SPEED, 0.35)
+            .add(EntityAttributes.ATTACK_DAMAGE, 4.0)
+            .add(EntityAttributes.ARMOR, 2.0)
     }
 }

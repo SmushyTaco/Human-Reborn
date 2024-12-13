@@ -21,7 +21,7 @@ object HumanReborn: ModInitializer {
     private val HUMAN_IDENTIFIER: Identifier = Identifier.of(MOD_ID, "human")
     private val SPAWN_EGG_IDENTIFIER: Identifier = Identifier.of(MOD_ID, "human_spawn_egg")
     val HUMAN_ENTITY_TYPE: EntityType<HumanEntity> = Registry.register(Registries.ENTITY_TYPE, HUMAN_IDENTIFIER, EntityType.Builder.create({ _, world -> HumanEntity(world) }, SpawnGroup.MONSTER).dimensions(0.6F, 1.8F).eyeHeight(1.62F).vehicleAttachment(PlayerEntity.VEHICLE_ATTACHMENT_POS).maxTrackingRange(8).build(RegistryKey.of(RegistryKeys.ENTITY_TYPE, HUMAN_IDENTIFIER)))
-    private val HUMAN_SPAWN_EGG = SpawnEggItem(HUMAN_ENTITY_TYPE, 5651507, 12422002, Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, SPAWN_EGG_IDENTIFIER)))
+    private val HUMAN_SPAWN_EGG = SpawnEggItem(HUMAN_ENTITY_TYPE, Item.Settings().registryKey(RegistryKey.of(RegistryKeys.ITEM, SPAWN_EGG_IDENTIFIER)))
     override fun onInitialize() {
         FabricDefaultAttributeRegistry.register(HUMAN_ENTITY_TYPE, HumanEntity.createMobAttributes())
         SpawnRestriction.register(HUMAN_ENTITY_TYPE, SpawnLocationTypes.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, HostileEntity::canSpawnInDark)

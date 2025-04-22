@@ -5,6 +5,7 @@ import net.minecraft.entity.attribute.EntityAttributes
 import net.minecraft.entity.damage.DamageSource
 import net.minecraft.entity.mob.CreeperEntity
 import net.minecraft.entity.mob.HostileEntity
+import net.minecraft.entity.mob.ZombifiedPiglinEntity
 import net.minecraft.entity.player.PlayerEntity
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
@@ -20,6 +21,7 @@ class HumanEntity(world: World): HostileEntity(HumanReborn.HUMAN_ENTITY_TYPE, wo
         goalSelector.add(2, MeleeAttackGoal(this, 1.0, false))
         goalSelector.add(7, WanderAroundFarGoal(this, 1.0))
         targetSelector.add(2, ActiveTargetGoal(this, PlayerEntity::class.java, true))
+        targetSelector.add(1, RevengeGoal(this).setGroupRevenge(ZombifiedPiglinEntity::class.java))
     }
     override fun getSwimSound(): SoundEvent = SoundEvents.ENTITY_PLAYER_SWIM
     override fun getSplashSound(): SoundEvent = SoundEvents.ENTITY_PLAYER_SPLASH

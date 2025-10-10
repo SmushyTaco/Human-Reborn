@@ -1,6 +1,6 @@
 package com.smushytaco.human_reborn.client
 import com.smushytaco.human_reborn.HumanReborn
 import net.fabricmc.api.ClientModInitializer
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry
+import net.minecraft.client.render.entity.EntityRendererFactories
 @Suppress("UNUSED")
-object HumanRebornClient: ClientModInitializer { override fun onInitializeClient() { EntityRendererRegistry.register(HumanReborn.HUMAN_ENTITY_TYPE) { HumanEntityRenderer(it) } } }
+object HumanRebornClient: ClientModInitializer { override fun onInitializeClient() { EntityRendererFactories.register(HumanReborn.HUMAN_ENTITY_TYPE) { HumanEntityRenderer(it) } } }

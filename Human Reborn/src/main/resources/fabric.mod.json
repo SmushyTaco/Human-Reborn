@@ -12,7 +12,7 @@
     "issues": "https://www.curseforge.com/minecraft/mc-mods/human-reborn/issues/",
     "sources": "https://github.com/SmushyTaco/Human-Reborn/"
   },
-  "license": "GNU Lesser General Public License version 3 (LGPLv3)",
+  "license": "Apache-2.0",
   "icon": "assets/human_reborn/icon.png",
   "environment": "*",
   "entrypoints": {

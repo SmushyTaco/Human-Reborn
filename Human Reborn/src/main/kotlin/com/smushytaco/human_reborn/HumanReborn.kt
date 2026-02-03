@@ -7,8 +7,8 @@ import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttribute
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
 import net.minecraft.core.registries.Registries
+import net.minecraft.resources.Identifier
 import net.minecraft.resources.ResourceKey
-import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.entity.*
 import net.minecraft.world.entity.monster.Monster
 import net.minecraft.world.item.CreativeModeTabs
@@ -17,8 +17,8 @@ import net.minecraft.world.item.SpawnEggItem
 import net.minecraft.world.level.levelgen.Heightmap
 object HumanReborn: ModInitializer {
     private const val MOD_ID = "human_reborn"
-    private val HUMAN_IDENTIFIER: ResourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, "human")
-    private val SPAWN_EGG_IDENTIFIER: ResourceLocation = ResourceLocation.fromNamespaceAndPath(MOD_ID, "human_spawn_egg")
+    private val HUMAN_IDENTIFIER: Identifier = Identifier.fromNamespaceAndPath(MOD_ID, "human")
+    private val SPAWN_EGG_IDENTIFIER: Identifier = Identifier.fromNamespaceAndPath(MOD_ID, "human_spawn_egg")
     val HUMAN_ENTITY_TYPE: EntityType<HumanEntity> = Registry.register(
         BuiltInRegistries.ENTITY_TYPE, HUMAN_IDENTIFIER, EntityType.Builder.of({ _, world -> HumanEntity(world) }, MobCategory.MONSTER).sized(0.6F, 1.8F).eyeHeight(1.62F).vehicleAttachment(
             Avatar.DEFAULT_VEHICLE_ATTACHMENT

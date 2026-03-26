@@ -2,7 +2,7 @@ package com.smushytaco.human_reborn
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents
 import net.fabricmc.fabric.api.`object`.builder.v1.entity.FabricDefaultAttributeRegistry
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.BuiltInRegistries
@@ -32,6 +32,6 @@ object HumanReborn: ModInitializer {
         SpawnPlacements.register(HUMAN_ENTITY_TYPE, SpawnPlacementTypes.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Monster::checkMonsterSpawnRules)
         BiomeModifications.addSpawn(BiomeSelectors.spawnsOneOf(EntityType.ZOMBIE), MobCategory.MONSTER, HUMAN_ENTITY_TYPE, 10, 1, 3)
         Registry.register(BuiltInRegistries.ITEM, SPAWN_EGG_IDENTIFIER, HUMAN_SPAWN_EGG)
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.SPAWN_EGGS).register(ItemGroupEvents.ModifyEntries { it.accept(HUMAN_SPAWN_EGG) })
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.SPAWN_EGGS).register(CreativeModeTabEvents.ModifyOutput { it.accept(HUMAN_SPAWN_EGG) })
     }
 }
